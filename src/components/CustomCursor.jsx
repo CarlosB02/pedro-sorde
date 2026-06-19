@@ -35,8 +35,16 @@ export default function CustomCursor() {
     };
   }, []);
 
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      setIsTouchDevice(true);
+    }
+  }, []);
+
   // Hide on mobile/touch devices
-  if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
+  if (isTouchDevice) {
     return null;
   }
 

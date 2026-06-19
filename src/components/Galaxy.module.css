@@ -1,0 +1,13 @@
+.galaxyContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.galaxyContainer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let pointer events pass through canvas so text selection or page scrolling is not interrupted */
+}

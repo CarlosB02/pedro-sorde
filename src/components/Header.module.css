@@ -57,14 +57,95 @@
   transform: translateX(0);
 }
 
+.hamburger {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .header {
     padding: 1.5rem 2rem;
   }
+
   .scrolled {
     padding: 1rem 2rem;
   }
+
   .nav {
-    display: none; /* In a real app, we'd add a hamburger menu */
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
+  }
+
+  .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--foreground);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hamburgerActive .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburgerActive .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburgerActive .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .headerOpen {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+  }
+
+  .mobileOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .mobileLink {
+    font-family: var(--font-cinzel), serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--foreground);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, letter-spacing 0.3s ease;
+  }
+
+  .mobileLink:hover,
+  .mobileLinkActive {
+    opacity: 1;
+    letter-spacing: 0.15em;
   }
 }

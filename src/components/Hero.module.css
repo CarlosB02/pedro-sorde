@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 1; /* Local stacking context */
 }
 
 .backgroundContainer {
@@ -14,7 +15,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 1;
   background-color: var(--background);
 }
 
@@ -24,6 +25,17 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+}
+
+.galaxyWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Float stars above background images */
+  pointer-events: none;
 }
 
 .overlay {
@@ -32,18 +44,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(10, 10, 10, 0.2) 0%,
-    rgba(10, 10, 10, 0.6) 50%,
-    rgba(10, 10, 10, 0.95) 100%
-  );
-  z-index: 1;
+  background: linear-gradient(to bottom,
+      rgba(10, 10, 10, 0.2) 0%,
+      rgba(10, 10, 10, 0.6) 50%,
+      rgba(10, 10, 10, 0.95) 100%);
+  z-index: 3; /* Dark gradient overlay to fade images and stars near bottom */
+  pointer-events: none;
 }
 
 .content {
   position: relative;
-  z-index: 2;
+  z-index: 10; /* Render text above overlay, images, and stars */
   text-align: center;
   padding: 0 2rem;
 }
@@ -76,7 +87,7 @@
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 10; /* Render indicator above everything */
   display: flex;
   justify-content: center;
   height: 60px;
@@ -90,8 +101,23 @@
 }
 
 @keyframes scrollLine {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  51% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  51% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
 }

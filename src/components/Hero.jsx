@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Hero.module.css";
 import Image from "next/image";
+import Galaxy from "./Galaxy";
 
 const IMAGES = [
   { src: "/images/hero_wedding.png", alt: "Cinematic Wedding", position: "center 30%" },
@@ -43,6 +44,23 @@ export default function Hero() {
             />
           </motion.div>
         </AnimatePresence>
+        <div className={styles.galaxyWrapper}>
+          <Galaxy 
+            mouseRepulsion
+            mouseInteraction
+            density={1.2}
+            glowIntensity={0.6}
+            saturation={0}
+            hueShift={140}
+            twinkleIntensity={0.5}
+            rotationSpeed={0.03}
+            repulsionStrength={1.5}
+            autoCenterRepulsion={0}
+            starSpeed={0.3}
+            speed={0.8}
+            transparent={true}
+          />
+        </div>
         <div className={styles.overlay} />
       </div>
 

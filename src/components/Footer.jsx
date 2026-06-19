@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.divider}>
-        <motion.div 
+        <motion.div
           className={styles.animatedLine}
           animate={{ x: ["-100%", "100%"] }}
           transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
@@ -25,7 +25,7 @@ export default function Footer() {
               Email <ArrowUpRight size={14} />
             </a>
           </div>
-          
+
           <div className={styles.copyright}>
             <p>&copy; {new Date().getFullYear()} PM Astratto. All rights reserved. Feito por <a href="https://enimble.pt" target="_blank" rel="noreferrer" className={styles.nimbleLink}>E-Nimble</a>.</p>
           </div>

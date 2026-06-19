@@ -13,24 +13,24 @@ export default function CTA() {
 
   return (
     <section className={styles.cta} id="contact" ref={ref}>
-      <motion.div 
+      <motion.div
         className={styles.container}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       >
         <h2 className={styles.statement}>Let&apos;s create something real.</h2>
-        
-        <button 
+
+        <button
           className={styles.button}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={() => setIsModalOpen(true)}
         >
           <span className={styles.buttonText}>Start a Project</span>
-          <motion.div 
+          <motion.div
             className={styles.buttonBackground}
-            animate={{ 
+            animate={{
               scale: isHovered ? 1.5 : 1,
               opacity: isHovered ? 0.15 : 0.05
             }}
