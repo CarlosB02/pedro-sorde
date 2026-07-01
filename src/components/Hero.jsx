@@ -1,51 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./Hero.module.css";
-import Image from "next/image";
 import Galaxy from "./Galaxy";
 
-const IMAGES = [
-  { src: "/images/hero_wedding.png", alt: "Cinematic Wedding", position: "center 30%" },
-  { src: "/images/hero_nightlife.png", alt: "High Energy Nightlife", position: "center center" }
-];
-
 export default function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % IMAGES.length);
-    }, 6000); // Crossfade every 6s
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className={styles.hero}>
       <div className={styles.backgroundContainer}>
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={currentIndex}
-            className={styles.imageWrapper}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 0.6, scale: 1 }} // Keep opacity low to allow text to pop
-            exit={{ opacity: 0 }}
-            transition={{ duration: 2.5, ease: "easeInOut" }}
-          >
-            <Image
-              src={IMAGES[currentIndex].src}
-              alt={IMAGES[currentIndex].alt}
-              fill
-              priority
-              style={{ objectFit: "cover", objectPosition: IMAGES[currentIndex].position }}
-              quality={100}
-            />
-          </motion.div>
-        </AnimatePresence>
         <div className={styles.galaxyWrapper}>
-          <Galaxy 
+          <Galaxy
             mouseRepulsion
             mouseInteraction
             density={1.2}
@@ -72,7 +36,7 @@ export default function Hero() {
           className={styles.textContainer}
         >
           <h1 className={styles.title}>EMOÇÃO EM MOVIMENTO</h1>
-          <p className={styles.subtitle}>PM Astratto. Visual Storyteller.</p>
+          <p className={styles.subtitle}>Pedro Martins. Visual Storyteller.</p>
         </motion.div>
       </div>
 

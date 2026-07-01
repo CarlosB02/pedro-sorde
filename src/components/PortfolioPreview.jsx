@@ -10,26 +10,32 @@ import clsx from "clsx";
 const PORTFOLIO_ITEMS = [
   {
     id: 1,
-    title: "Elegance & Intimacy",
-    description: "Lake Como, Italy",
+    title: "CASAMENTOS",
+    description: "Fotografia e vídeo para histórias que merecem ser recordadas para sempre.",
     src: "/images/portfolio_wedding_1.png",
   },
   {
     id: 2,
-    title: "Neon Pulse",
-    description: "Ibiza Closing Party",
+    title: "VIDA NOTURNA",
+    description: "A energia, o ritmo e a intensidade dos momentos vividos sem pausas.",
     src: "/images/portfolio_nightlife_1.png",
   },
   {
     id: 3,
-    title: "Scale & Atmosphere",
-    description: "Met Gala Afterparty",
+    title: "EVENTOS CORPORATIVOS",
+    description: "Experiências que reforçam a identidade da sua marca.",
     src: "/images/portfolio_event_1.png",
   },
   {
     id: 4,
-    title: "Shadow Play",
-    description: "Personal Exhibition",
+    title: "VISÃO PESSOAL",
+    description: "Um espaço para explorar a criatividade sem limites.",
+    src: "/images/portfolio_personal_1.png",
+  },
+  {
+    id: 5,
+    title: "EM MOVIMENTO",
+    description: "Porque algumas histórias precisam de som, ritmo e movimento.",
     src: "/images/portfolio_personal_1.png",
   }
 ];
@@ -39,18 +45,18 @@ export default function PortfolioPreview() {
 
   return (
     <section className={styles.portfolio} id="work">
-      <SectionHeader 
+      <SectionHeader
         number="01"
-        category="SELECTION"
-        title="Selected Works"
-        description="A curation of moments, portraying intimate elegance and dynamic atmospheres across a cinematic spectrum."
+        category="ÁREAS EM DESTAQUE"
+        title="TRABALHOS SELECIONADOS"
+        description="Uma seleção de projetos que refletem diferentes atmosferas, emoções e formas de contar histórias através da imagem."
       />
 
       {/* Desktop Interactive Split Layout */}
       <div className={styles.desktopContainer}>
         <div className={styles.listColumn}>
           {PORTFOLIO_ITEMS.map((item, index) => (
-            <div 
+            <div
               key={item.id}
               className={clsx(styles.menuItem, index === activeIndex && styles.active)}
               onMouseEnter={() => setActiveIndex(index)}
@@ -63,7 +69,7 @@ export default function PortfolioPreview() {
             </div>
           ))}
         </div>
-        
+
         <div className={styles.previewColumn}>
           <div className={styles.previewFrame}>
             {PORTFOLIO_ITEMS.map((item, index) => (
@@ -71,9 +77,9 @@ export default function PortfolioPreview() {
                 key={item.id}
                 className={styles.previewImageWrapper}
                 initial={{ opacity: 0 }}
-                animate={{ 
+                animate={{
                   opacity: index === activeIndex ? 1 : 0,
-                  scale: index === activeIndex ? 1 : 1.05 
+                  scale: index === activeIndex ? 1 : 1.05
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >

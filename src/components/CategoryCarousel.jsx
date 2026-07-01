@@ -10,9 +10,9 @@ import clsx from "clsx";
 const CATEGORIES = {
   weddings: {
     number: "02",
-    category: "INTIMACY & ELEGANCE",
-    title: "The Vow",
-    description: "Moments of quiet grace amidst the celebration.",
+    category: "CASAMENTOS",
+    title: "O SIM",
+    description: "Cumplicidade, emoção e beleza que merecem ser recordados para sempre.",
     theme: "light",
     images: [
       "/images/hero_wedding.png",
@@ -24,9 +24,9 @@ const CATEGORIES = {
   },
   nightlife: {
     number: "03",
-    category: "SOUND & ENERGY",
-    title: "The Pulse",
-    description: "Vibrant dynamics and intense focus in the heart of the scene.",
+    category: "EVENTOS & VIDA NOTURNA",
+    title: "A NOITE",
+    description: "A energia do momento, o ritmo da celebração e a atmosfera impossível de repetir.",
     theme: "dark",
     images: [
       "/images/hero_nightlife.png",
@@ -40,7 +40,7 @@ const CATEGORIES = {
 
 export default function CategoryCarousel({ type = "weddings" }) {
   const data = CATEGORIES[type] || CATEGORIES.weddings;
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
     skipSnaps: false,
@@ -50,20 +50,20 @@ export default function CategoryCarousel({ type = "weddings" }) {
   return (
     <section className={clsx(styles.carouselSection, styles[data.theme])}>
       <div className={styles.headerWrapper}>
-        <SectionHeader 
+        <SectionHeader
           number={data.number}
           category={data.category}
           title={data.title}
           description={data.description}
         />
       </div>
-      
+
       <div className={styles.embla} ref={emblaRef}>
         <div className={styles.emblaContainer}>
           {data.images.map((src, index) => (
             <div className={styles.emblaSlide} key={index}>
               <div className={styles.imageWrapper}>
-                <Image 
+                <Image
                   src={src}
                   alt={`${data.title} ${index + 1}`}
                   fill
