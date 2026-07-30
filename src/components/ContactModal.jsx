@@ -96,7 +96,7 @@ export default function ContactModal({ isOpen, onClose }) {
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="Pedro Martins"
+                        placeholder="O Teu Nome"
                         className={styles.input}
                         required
                       />

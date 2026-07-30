@@ -12,8 +12,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Pedrom media | Professional Photographer",
-  description: "Ultra-creative, high-end photography. Weddings, nightlife, events, and artistic visual storytelling.",
+  title: "Pedrom media | Fotógrafo Profissional",
+  description: "Fotografia de alta qualidade para todos os seus momentos. ",
 };
 
 import CustomCursor from "@/components/CustomCursor";

@@ -13,7 +13,8 @@ html {
 
 body {
   max-width: 100vw;
-  overflow-x: clip; /* Fixes native scroll locking at the bottom of the page */
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 h1,

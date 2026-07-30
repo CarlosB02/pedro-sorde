@@ -1,7 +1,7 @@
 .carouselSection {
   padding: 4rem 0;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: clip;
   transition: background-color 0.5s ease;
 }
 
@@ -22,6 +22,8 @@
 .embla {
   overflow: hidden;
   cursor: grab;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
 }
 
 .embla:active {
@@ -31,6 +33,7 @@
 .emblaContainer {
   display: flex;
   margin-left: 4rem; /* Initial offset */
+  touch-action: pan-x;
 }
 
 .emblaSlide {
