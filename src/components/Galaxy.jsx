@@ -197,6 +197,7 @@ export default function Galaxy({
   const smoothMousePos = useRef({ x: 0.5, y: 0.5 });
   const targetMouseActive = useRef(0.0);
   const smoothMouseActive = useRef(0.0);
+  const isVisibleRef = useRef(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -294,8 +295,23 @@ export default function Galaxy({
     resize();
     let animateId;
 
+    // Pause render loop when Galaxy is off-screen to save GPU resources
+    const visibilityObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisibleRef.current = entry.isIntersecting;
+        });
+      },
+      { threshold: 0 }
+    );
+    visibilityObserver.observe(ctn);
+
     function update(t) {
       animateId = requestAnimationFrame(update);
+
+      // Skip rendering entirely when off-screen
+      if (!isVisibleRef.current) return;
+
       if (!disableAnimation) {
         program.uniforms.uTime.value = t * 0.001;
         program.uniforms.uStarSpeed.value = (t * 0.001 * starSpeed) / 10.0;
@@ -351,6 +367,7 @@ export default function Galaxy({
     return () => {
       cancelAnimationFrame(animateId);
       resizeObserver.disconnect();
+      visibilityObserver.disconnect();
       if (mouseInteraction) {
         window.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseleave', handleMouseLeave);

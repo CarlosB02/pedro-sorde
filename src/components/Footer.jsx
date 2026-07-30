@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import styles from "./Footer.module.css";
 import { Instagram, Mail, ArrowUpRight } from "lucide-react";
 
@@ -8,11 +7,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.divider}>
-        <motion.div
-          className={styles.animatedLine}
-          animate={{ x: ["-100%", "100%"] }}
-          transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-        />
+        <div className={styles.animatedLine} />
       </div>
 
       <div className={styles.content}>
