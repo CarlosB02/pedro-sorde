@@ -12,41 +12,52 @@ const PORTFOLIO_ITEMS = [
     id: 1,
     title: "CASAMENTOS",
     description: "Fotografia e vídeo para histórias que merecem ser recordadas para sempre.",
-    src: "/images/portfolio_wedding_1.png",
+    src: "/images/weddings/portfolio_wedding_1.webp",
+    targetId: "weddings",
   },
   {
     id: 2,
     title: "VIDA NOTURNA",
     description: "A energia, o ritmo e a intensidade dos momentos vividos sem pausas.",
-    src: "/images/portfolio_nightlife_1.png",
+    src: "/images/nightlife/portfolio_nightlife_1.webp",
+    targetId: "nightlife",
   },
   {
     id: 3,
-    title: "EVENTOS CORPORATIVOS",
-    description: "Experiências que reforçam a identidade da sua marca.",
-    src: "/images/portfolio_event_1.png",
+    title: "VISÃO PESSOAL",
+    description: "Um espaço para explorar a criatividade sem limites.",
+    src: "/images/personal/portfolio_personal_1.webp",
+    targetId: "personal",
   },
   {
     id: 4,
-    title: "VISÃO PESSOAL",
-    description: "Um espaço para explorar a criatividade sem limites.",
-    src: "/images/portfolio_personal_1.png",
+    title: "EVENTOS",
+    description: "Experiências que reforçam a identidade da sua marca.",
+    src: "/images/events/portfolio_event_1.webp",
+    targetId: "events",
   },
   {
     id: 5,
     title: "EM MOVIMENTO",
     description: "Porque algumas histórias precisam de som, ritmo e movimento.",
-    src: "/images/portfolio_personal_1.png",
+    src: "/images/personal/portfolio_personal_1.webp",
+    targetId: "em-movimento",
   }
 ];
 
 export default function PortfolioPreview() {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const handleScroll = (targetId) => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className={styles.portfolio} id="work">
       <SectionHeader
-        number="01"
         category="ÁREAS EM DESTAQUE"
         title="TRABALHOS SELECIONADOS"
         description="Uma seleção de projetos que refletem diferentes atmosferas, emoções e formas de contar histórias através da imagem."
@@ -60,6 +71,7 @@ export default function PortfolioPreview() {
               key={item.id}
               className={clsx(styles.menuItem, index === activeIndex && styles.active)}
               onMouseEnter={() => setActiveIndex(index)}
+              onClick={() => handleScroll(item.targetId)}
             >
               <span className={styles.itemNumber}>/{String(index + 1).padStart(2, "0")}</span>
               <div className={styles.itemText}>
@@ -100,7 +112,12 @@ export default function PortfolioPreview() {
       {/* Mobile Stack Layout */}
       <div className={styles.mobileContainer}>
         {PORTFOLIO_ITEMS.map((item, index) => (
-          <div key={item.id} className={styles.mobileItem}>
+          <div
+            key={item.id}
+            className={styles.mobileItem}
+            onClick={() => handleScroll(item.targetId)}
+            style={{ cursor: "pointer" }}
+          >
             <div className={styles.mobileHeader}>
               <span className={styles.mobileNumber}>/{String(index + 1).padStart(2, "0")}</span>
               <h3 className={styles.mobileTitle}>{item.title}</h3>

@@ -7,7 +7,7 @@ import styles from "./AboutTeaser.module.css";
 
 export default function AboutTeaser() {
   const containerRef = useRef(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -21,28 +21,25 @@ export default function AboutTeaser() {
       <div className={styles.content}>
         <motion.div className={styles.textContent} style={{ y: y1 }}>
           <h2 className={styles.manifesto}>
-            Emotion. <br />
-            Movement. <br />
-            Energy.
+            POR TRÁS DA LENTE.
           </h2>
           <p className={styles.description}>
-            I capture real moments, not staged perfection. Whether it&apos;s the intimate 
-            silence of an elopement or the pulsating bass of a 4 AM dance floor, 
-            my work is a documentary of human intensity. 
+            Não procuro momentos perfeitos. Procuro os verdadeiros. Entre a emoção de um casamento, a energia de uma pista de dança ou a intensidade de um grande evento, o meu objetivo é sempre o mesmo:
           </p>
           <p className={styles.description}>
-            This is not just photography. It&apos;s an immersive exhibition of your reality.
+            Contar histórias através de imagens que continuam a dizer alguma coisa muito depois do momento passar.
           </p>
         </motion.div>
 
         <motion.div className={styles.imageContent} style={{ y: y2 }}>
           <div className={styles.imageWrapper}>
-            <Image 
-              src="/images/about_portrait.png"
-              alt="PM Astratto Portrait"
+            <Image
+              src="/images/about/about_portrait.webp"
+              alt="Pedrom media Portrait"
               fill
               className={styles.image}
               sizes="(max-width: 768px) 100vw, 50vw"
+              unoptimized={true}
             />
           </div>
         </motion.div>

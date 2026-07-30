@@ -9,31 +9,59 @@ import clsx from "clsx";
 
 const CATEGORIES = {
   weddings: {
-    number: "02",
+    number: "01",
     category: "CASAMENTOS",
     title: "O SIM",
     description: "Cumplicidade, emoção e beleza que merecem ser recordados para sempre.",
     theme: "light",
     images: [
-      "/images/hero_wedding.png",
-      "/images/portfolio_wedding_1.png",
-      "/images/hero_wedding.png",
-      "/images/portfolio_wedding_1.png",
-      "/images/hero_wedding.png"
+      "/images/weddings/hero_wedding.webp",
+      "/images/weddings/portfolio_wedding_1.webp",
+      "/images/weddings/hero_wedding.webp",
+      "/images/weddings/portfolio_wedding_1.webp",
+      "/images/weddings/hero_wedding.webp"
     ]
   },
   nightlife: {
-    number: "03",
-    category: "EVENTOS & VIDA NOTURNA",
+    number: "02",
+    category: "VIDA NOTURNA",
     title: "A NOITE",
     description: "A energia do momento, o ritmo da celebração e a atmosfera impossível de repetir.",
     theme: "dark",
     images: [
-      "/images/hero_nightlife.png",
-      "/images/portfolio_nightlife_1.png",
-      "/images/hero_nightlife.png",
-      "/images/portfolio_nightlife_1.png",
-      "/images/hero_nightlife.png"
+      "/images/nightlife/hero_nightlife.webp",
+      "/images/nightlife/portfolio_nightlife_1.webp",
+      "/images/nightlife/hero_nightlife.webp",
+      "/images/nightlife/portfolio_nightlife_1.webp",
+      "/images/nightlife/hero_nightlife.webp"
+    ]
+  },
+  events: {
+    number: "04",
+    category: "EVENTOS",
+    title: "O REGISTO",
+    description: "Experiências e momentos corporativos ou sociais captados com foco na essência do acontecimento.",
+    theme: "dark",
+    images: [
+      "/images/events/portfolio_event_1.webp",
+      "/images/events/@Pedromrtn_s_NGF-0720.webp",
+      "/images/events/@Pedromrtn_s_NGF-0848.webp",
+      "/images/events/@Pedromrtn_s_NGF-2606.webp",
+      "/images/events/@Pedromrtn_s_NGF-7564.webp"
+    ]
+  },
+  personal: {
+    number: "03",
+    category: "VISÃO PESSOAL",
+    title: "O OLHAR",
+    description: "A fotografia como expressão artística pura, sem guiões ou expetativas.",
+    theme: "light",
+    images: [
+      "/images/personal/portfolio_personal_1.webp",
+      "/images/personal/PEMA1566.webp",
+      "/images/personal/@Pedromrtn_s-0456.webp",
+      "/images/personal/PM-9157.webp",
+      "/images/personal/PEMA0351.webp"
     ]
   }
 };
@@ -48,7 +76,7 @@ export default function CategoryCarousel({ type = "weddings" }) {
   });
 
   return (
-    <section className={clsx(styles.carouselSection, styles[data.theme])}>
+    <section id={type} className={clsx(styles.carouselSection, styles[data.theme])}>
       <div className={styles.headerWrapper}>
         <SectionHeader
           number={data.number}

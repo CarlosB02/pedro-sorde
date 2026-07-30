@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "PM Astratto | Professional Photographer",
+  title: "Pedrom media | Professional Photographer",
   description: "Ultra-creative, high-end photography. Weddings, nightlife, events, and artistic visual storytelling.",
 };
 

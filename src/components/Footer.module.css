@@ -85,7 +85,7 @@
 
 .brand {
   font-family: var(--font-cinzel), serif;
-  font-size: 16vw;
+  font-size: 11vw;
   font-weight: 300;
   line-height: 0.8;
   letter-spacing: -0.02em;
@@ -107,7 +107,7 @@
   }
   
   .brand {
-    font-size: 18vw;
+    font-size: 13vw;
     margin-top: 2rem;
   }
 }

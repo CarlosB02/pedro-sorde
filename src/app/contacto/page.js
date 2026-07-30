@@ -94,8 +94,8 @@ export default function Contacto() {
                 </div>
                 <div>
                   <span className={styles.detailLabel}>Email</span>
-                  <a href="mailto:contact@pmastratto.com" className={styles.detailValue}>
-                    contact@pmastratto.com
+                  <a href="mailto:contact@pedrommedia.com" className={styles.detailValue}>
+                    contact@pedrommedia.com
                   </a>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function Contacto() {
                     rel="noreferrer"
                     className={styles.detailValue}
                   >
-                    @pmastratto
+                    @pedrommedia
                   </a>
                 </div>
               </div>

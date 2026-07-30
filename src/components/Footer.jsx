@@ -21,18 +21,18 @@ export default function Footer() {
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className={styles.link}>
               Instagram <ArrowUpRight size={14} />
             </a>
-            <a href="mailto:contact@pmastratto.com" className={styles.link}>
+            <a href="mailto:contact@pedrommedia.com" className={styles.link}>
               Email <ArrowUpRight size={14} />
             </a>
           </div>
 
           <div className={styles.copyright}>
-            <p>&copy; {new Date().getFullYear()} PM Astratto. All rights reserved. Feito por <a href="https://enimble.pt" target="_blank" rel="noreferrer" className={styles.nimbleLink}>E-Nimble</a>.</p>
+            <p>&copy; {new Date().getFullYear()} Pedrom media. All rights reserved. Feito por <a href="https://enimble.pt" target="_blank" rel="noreferrer" className={styles.nimbleLink}>E-Nimble</a>.</p>
           </div>
         </div>
 
         <div className={styles.brandWrapper}>
-          <h2 className={styles.brand}>PM ASTRATTO</h2>
+          <h2 className={styles.brand}>PEDROM MEDIA</h2>
         </div>
       </div>
     </footer>

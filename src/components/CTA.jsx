@@ -19,7 +19,7 @@ export default function CTA() {
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h2 className={styles.statement}>Let&apos;s create something real.</h2>
+        <h2 className={styles.statement}>VAMOS CONTAR A TUA HISTÓRIA.</h2>
 
         <button
           className={styles.button}
@@ -27,7 +27,7 @@ export default function CTA() {
           onMouseLeave={() => setIsHovered(false)}
           onClick={() => setIsModalOpen(true)}
         >
-          <span className={styles.buttonText}>Start a Project</span>
+          <span className={styles.buttonText}>Vamos Conversar</span>
           <motion.div
             className={styles.buttonBackground}
             animate={{

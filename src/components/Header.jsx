@@ -46,7 +46,7 @@ export default function Header() {
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className={styles.logo}>
-          <a href="/" onClick={() => setMobileMenuOpen(false)}>PM ASTRATTO</a>
+          <a href="/" onClick={() => setMobileMenuOpen(false)}>PEDROM MEDIA</a>
         </div>
 
         <nav className={styles.nav}>
