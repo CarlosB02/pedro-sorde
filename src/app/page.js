@@ -12,15 +12,15 @@ export default function Home() {
       <div className="film-grain" />
       <Header />
       <Hero />
-      
+
       <PortfolioPreview />
-      
+
       {/* Visual Chapters - Carousels */}
       <CategoryCarousel type="weddings" />
       <CategoryCarousel type="nightlife" />
       <CategoryCarousel type="personal" />
       <CategoryCarousel type="events" />
-      
+
       <AboutTeaser />
       <CTA />
       <Footer />

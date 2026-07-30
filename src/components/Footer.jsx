@@ -18,10 +18,10 @@ export default function Footer() {
       <div className={styles.content}>
         <div className={styles.topRow}>
           <div className={styles.links}>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className={styles.link}>
+            <a href="https://www.instagram.com/pedrom.media/" target="_blank" rel="noreferrer" className={styles.link}>
               Instagram <ArrowUpRight size={14} />
             </a>
-            <a href="mailto:contact@pedrommedia.com" className={styles.link}>
+            <a href="mailto:jpfm.0598@gmail.com" className={styles.link}>
               Email <ArrowUpRight size={14} />
             </a>
           </div>

@@ -37,9 +37,9 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={clsx(styles.header, { 
+        className={clsx(styles.header, {
           [styles.scrolled]: scrolled,
-          [styles.headerOpen]: mobileMenuOpen 
+          [styles.headerOpen]: mobileMenuOpen
         })}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -51,18 +51,18 @@ export default function Header() {
 
         <nav className={styles.nav}>
           <a href={isContactPage ? "/#work" : "#work"} className={styles.link}>
-            <span>Work</span>
+            <span>portfólio</span>
           </a>
           <a href={isContactPage ? "/#about" : "#about"} className={styles.link}>
-            <span>About</span>
+            <span>Sobre</span>
           </a>
           <a href="/contacto" className={clsx(styles.link, { [styles.active]: isContactPage })}>
-            <span>Contact</span>
+            <span>Contacto</span>
           </a>
         </nav>
 
         {/* Hamburger Button */}
-        <button 
+        <button
           className={clsx(styles.hamburger, { [styles.hamburgerActive]: mobileMenuOpen })}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle Menu"
@@ -89,8 +89,8 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
               >
-                <a 
-                  href={isContactPage ? "/#work" : "#work"} 
+                <a
+                  href={isContactPage ? "/#work" : "#work"}
                   className={styles.mobileLink}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -102,8 +102,8 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
-                <a 
-                  href={isContactPage ? "/#about" : "#about"} 
+                <a
+                  href={isContactPage ? "/#about" : "#about"}
                   className={styles.mobileLink}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -115,11 +115,11 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
               >
-                <a 
-                  href="/contacto" 
-                  className={clsx(styles.mobileLink, { 
+                <a
+                  href="/contacto"
+                  className={clsx(styles.mobileLink, {
                     [styles.active]: isContactPage,
-                    [styles.mobileLinkActive]: isContactPage 
+                    [styles.mobileLinkActive]: isContactPage
                   })}
                   onClick={() => setMobileMenuOpen(false)}
                 >

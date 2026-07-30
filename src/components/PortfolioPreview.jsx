@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 import styles from "./PortfolioPreview.module.css";
@@ -47,6 +47,11 @@ const PORTFOLIO_ITEMS = [
 
 export default function PortfolioPreview() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   const handleScroll = (targetId) => {
     const element = document.getElementById(targetId);
@@ -109,31 +114,57 @@ export default function PortfolioPreview() {
         </div>
       </div>
 
-      {/* Mobile Stack Layout */}
+      {/* Mobile Accordion Layout */}
       <div className={styles.mobileContainer}>
-        {PORTFOLIO_ITEMS.map((item, index) => (
-          <div
-            key={item.id}
-            className={styles.mobileItem}
-            onClick={() => handleScroll(item.targetId)}
-            style={{ cursor: "pointer" }}
-          >
-            <div className={styles.mobileHeader}>
-              <span className={styles.mobileNumber}>/{String(index + 1).padStart(2, "0")}</span>
-              <h3 className={styles.mobileTitle}>{item.title}</h3>
+        {PORTFOLIO_ITEMS.map((item, index) => {
+          const isExpanded = expandedIndex === index;
+          return (
+            <div
+              key={item.id}
+              className={styles.mobileItem}
+            >
+              <div
+                className={clsx(styles.mobileHeader, isExpanded && styles.mobileHeaderActive)}
+                onClick={() => toggleAccordion(index)}
+                style={{ cursor: "pointer" }}
+              >
+                <div className={styles.mobileTitleRow}>
+                  <span className={styles.mobileNumber}>/{String(index + 1).padStart(2, "0")}</span>
+                  <h3 className={styles.mobileTitle}>{item.title}</h3>
+                </div>
+                <span className={styles.accordionIcon}>
+                  {isExpanded ? "—" : "+"}
+                </span>
+              </div>
+              
+              <AnimatePresence initial={false}>
+                {isExpanded && (
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <div className={styles.mobileContentInner}>
+                      <div className={styles.mobileImageWrapper}>
+                        <Image
+                          src={item.src}
+                          alt={item.title}
+                          fill
+                          sizes="90vw"
+                          className={styles.image}
+                        />
+                      </div>
+                      <p className={styles.mobileDesc}>{item.description}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <div className={styles.mobileImageWrapper}>
-              <Image
-                src={item.src}
-                alt={item.title}
-                fill
-                sizes="90vw"
-                className={styles.image}
-              />
-            </div>
-            <p className={styles.mobileDesc}>{item.description}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

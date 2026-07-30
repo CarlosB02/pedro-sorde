@@ -27,7 +27,7 @@ export default function CTA() {
           onMouseLeave={() => setIsHovered(false)}
           onClick={() => setIsModalOpen(true)}
         >
-          <span className={styles.buttonText}>Vamos Conversar</span>
+          <span className={styles.buttonText}>Criar Memórias</span>
           <motion.div
             className={styles.buttonBackground}
             animate={{

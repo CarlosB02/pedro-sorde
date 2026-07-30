@@ -36,7 +36,7 @@ export default function Hero() {
           className={styles.textContainer}
         >
           <h1 className={styles.title}>EMOÇÃO EM MOVIMENTO</h1>
-          <p className={styles.subtitle}>Pedro Martins. Visual Storyteller.</p>
+          <p className={styles.subtitle}>Pedro Martins. Storyteller Visual.</p>
         </motion.div>
       </div>
 

@@ -23,14 +23,14 @@ export default function ContactModal({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.name || !form.email) return;
-    
+
     setIsSubmitting(true);
     // Simulate API call with a luxury feel
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setForm({ name: "", email: "", projectType: "", message: "" });
-      
+
       // Auto close after 3 seconds on success
       setTimeout(() => {
         setIsSubmitted(false);
@@ -42,7 +42,7 @@ export default function ContactModal({ isOpen, onClose }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
           className={styles.overlay}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -50,7 +50,7 @@ export default function ContactModal({ isOpen, onClose }) {
           transition={{ duration: 0.4 }}
           onClick={onClose}
         >
-          <motion.div 
+          <motion.div
             className={styles.modal}
             initial={{ opacity: 0, y: 30, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -63,7 +63,7 @@ export default function ContactModal({ isOpen, onClose }) {
             </button>
 
             {isSubmitted ? (
-              <motion.div 
+              <motion.div
                 className={styles.successWrapper}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -71,46 +71,46 @@ export default function ContactModal({ isOpen, onClose }) {
                 <div className={styles.successIconWrapper}>
                   <Check size={32} />
                 </div>
-                <h3 className={styles.successTitle}>Inquiry Received</h3>
+                <h3 className={styles.successTitle}>Pedido Recebido</h3>
                 <p className={styles.successText}>
-                  Thank you for reaching out. Let&apos;s turn your vision into visual art soon.
+                  Obrigado pelo teu contacto. Em breve entrarei em contacto para dar forma ao teu projeto.
                 </p>
               </motion.div>
             ) : (
               <>
                 <div className={styles.header}>
-                  <span className={styles.subtitle}>Inquire</span>
-                  <h3 className={styles.title}>Start a Project</h3>
+                  <span className={styles.subtitle}>Contato</span>
+                  <h3 className={styles.title}>CONTA-ME A TUA IDEIA</h3>
                   <p className={styles.description}>
-                    Let&apos;s create something distinct. Fill in your details and I will be in touch.
+                    Conta-me um pouco sobre o teu projeto. Responderei o mais breve possível.
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className={styles.form}>
                   <div className={styles.fieldGroup}>
                     <div className={styles.field}>
-                      <label htmlFor="name" className={styles.label}>Full Name</label>
-                      <input 
-                        type="text" 
+                      <label htmlFor="name" className={styles.label}>Nome</label>
+                      <input
+                        type="text"
                         id="name"
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="E.g., Jane Doe"
+                        placeholder="Pedro Martins"
                         className={styles.input}
                         required
                       />
                     </div>
 
                     <div className={styles.field}>
-                      <label htmlFor="email" className={styles.label}>Email Address</label>
-                      <input 
-                        type="email" 
+                      <label htmlFor="email" className={styles.label}>Email</label>
+                      <input
+                        type="email"
                         id="email"
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        placeholder="E.g., jane@example.com"
+                        placeholder="exemplo@email.com"
                         className={styles.input}
                         required
                       />
@@ -118,30 +118,31 @@ export default function ContactModal({ isOpen, onClose }) {
                   </div>
 
                   <div className={styles.field}>
-                    <label htmlFor="projectType" className={styles.label}>Project Category</label>
-                    <select 
+                    <label htmlFor="projectType" className={styles.label}>Tipo de projeto</label>
+                    <select
                       id="projectType"
                       name="projectType"
                       value={form.projectType}
                       onChange={handleChange}
                       className={styles.select}
                     >
-                      <option value="">Select an option</option>
-                      <option value="wedding">Wedding / Elopement</option>
-                      <option value="nightlife">Nightlife / Concert</option>
-                      <option value="editorial">Editorial / Exhibition</option>
-                      <option value="other">Other Unique Concept</option>
+                      <option value="">Seleciona uma categoria</option>
+                      <option value="wedding">Casamento</option>
+                      <option value="nightlife">Vida Noturna</option>
+                      <option value="editorial">Visão Pessoal / Marca</option>
+                      <option value="eventos">Eventos</option>
+                      <option value="other">Outro</option>
                     </select>
                   </div>
 
                   <div className={styles.field}>
-                    <label htmlFor="message" className={styles.label}>Tell me about your vision</label>
-                    <textarea 
+                    <label htmlFor="message" className={styles.label}>Fala-me do teu projeto</label>
+                    <textarea
                       id="message"
                       name="message"
                       value={form.message}
                       onChange={handleChange}
-                      placeholder="Briefly describe the atmosphere, location, and dates..."
+                      placeholder="Partilha comigo a tua ideia, a data, o local ou qualquer detalhe importante."
                       className={styles.textarea}
                       rows={4}
                     />
@@ -149,9 +150,9 @@ export default function ContactModal({ isOpen, onClose }) {
 
                   <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
                     {isSubmitting ? (
-                      <span className={styles.loadingText}>Submitting inquiry...</span>
+                      <span className={styles.loadingText}>Submetendo pedido...</span>
                     ) : (
-                      <span>Submit Request</span>
+                      <span>Submeter</span>
                     )}
                   </button>
                 </form>
