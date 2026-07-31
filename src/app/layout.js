@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Pedrom media | Fotógrafo Profissional",
+  title: "Pedrom Media | Fotógrafo Profissional",
   description: "Fotografia de alta qualidade para todos os seus momentos. ",
 };
 
