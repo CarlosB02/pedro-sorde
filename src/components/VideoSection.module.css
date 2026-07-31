@@ -25,17 +25,16 @@
   position: relative;
   width: 100%;
   max-width: 1400px;
-  aspect-ratio: 16 / 9;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
 }
 
 .video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
@@ -101,7 +100,6 @@
     margin-top: 2rem;
   }
   .videoWrapper {
-    aspect-ratio: 16 / 9;
     border-radius: 8px;
   }
   .overlay {

@@ -41,6 +41,7 @@ export default function VideoSection() {
             muted
             playsInline
             autoPlay
+            preload="metadata"
           />
           <div className={styles.overlay}>
             <div className={styles.playButton}>
