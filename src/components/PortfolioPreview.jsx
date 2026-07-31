@@ -40,7 +40,7 @@ const PORTFOLIO_ITEMS = [
     id: 5,
     title: "EM MOVIMENTO",
     description: "Porque algumas histórias precisam de som, ritmo e movimento.",
-    src: "/videos/em-movimento/fabioredes.mov",
+    src: "/videos/em-movimento/fabioredes.mp4",
     type: "video",
     targetId: "em-movimento",
   }
@@ -150,7 +150,7 @@ export default function PortfolioPreview() {
                   {isExpanded ? "—" : "+"}
                 </span>
               </div>
-              
+
               <AnimatePresence initial={false}>
                 {isExpanded && (
                   <motion.div
