@@ -40,7 +40,8 @@ const PORTFOLIO_ITEMS = [
     id: 5,
     title: "EM MOVIMENTO",
     description: "Porque algumas histórias precisam de som, ritmo e movimento.",
-    src: "/images/personal/portfolio_personal_1.webp",
+    src: "/videos/em-movimento/fabioredes.mov",
+    type: "video",
     targetId: "em-movimento",
   }
 ];
@@ -100,14 +101,27 @@ export default function PortfolioPreview() {
                 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="40vw"
-                  className={styles.image}
-                  priority={index === 0}
-                />
+                {item.type === "video" ? (
+                  <video
+                    src={item.src}
+                    className={styles.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  />
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    sizes="40vw"
+                    className={styles.image}
+                    priority={index === 0}
+                  />
+                )}
               </motion.div>
             ))}
           </div>
@@ -149,13 +163,26 @@ export default function PortfolioPreview() {
                   >
                     <div className={styles.mobileContentInner}>
                       <div className={styles.mobileImageWrapper}>
-                        <Image
-                          src={item.src}
-                          alt={item.title}
-                          fill
-                          sizes="90vw"
-                          className={styles.image}
-                        />
+                        {item.type === "video" ? (
+                          <video
+                            src={item.src}
+                            className={styles.image}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="metadata"
+                            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                          />
+                        ) : (
+                          <Image
+                            src={item.src}
+                            alt={item.title}
+                            fill
+                            sizes="90vw"
+                            className={styles.image}
+                          />
+                        )}
                       </div>
                       <p className={styles.mobileDesc}>{item.description}</p>
                     </div>

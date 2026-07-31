@@ -35,7 +35,7 @@ export default function VideoSection() {
         <div className={styles.videoWrapper} onClick={togglePlay}>
           <video
             ref={videoRef}
-            src="/videos/em-movimento/video.mp4"
+            src="/videos/em-movimento/fabioredes.mov"
             className={styles.video}
             loop
             muted
